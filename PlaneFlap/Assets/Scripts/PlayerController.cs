@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //variaveis
+    private Rigidbody2D meuRB;
+    [SerializeField] private float speed;
     void Start()
     {
-        
+      meuRB = GetComponent<Rigidbody2D>();  
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        movimento();
+    }
+    private void movimento()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            meuRB.velocity = Vector2.up * speed;
+
+        } 
+        if (meuRB.velocity.y<-speed)
+        {
+            meuRB.velocity = Vector2.down * speed;
+        } 
+
     }
 }
