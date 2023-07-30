@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     //variaveis
@@ -29,5 +29,8 @@ public class PlayerController : MonoBehaviour
             meuRB.velocity = Vector2.down * speed;
         } 
 
+    }
+    private void OnTriggerEnter2D(Collider2D other) {
+        SceneManager.LoadScene("Jogo");
     }
 }
